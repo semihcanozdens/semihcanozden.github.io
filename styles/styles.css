@@ -1,0 +1,144 @@
+/* Genel sıfırlamalar ve kutu boyutlandırma */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sayfa genel stil ayarları */
+body, html {
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #111;
+    color: #00ff00;
+    font-size: 2rem;
+    overflow-x: hidden; /* Yatayda kaydırmayı engelle */
+    scroll-snap-type: y mandatory; /* Scroll geçişleri için snap efekti */
+    scroll-behavior: smooth; /* Yumuşak scroll geçişi */
+}
+
+/* Her bir bölümün full ekranı kaplamasını sağla */
+.section {
+    height: 100vh; /* Her bölümün tam ekran olması */
+    display: flex;
+    justify-content: center; /* İçeriği yatayda ortalar */
+    align-items: center; /* İçeriği dikeyde ortalar */
+    flex-direction: column;
+    padding: 20px;
+    scroll-snap-align: start; /* Bölümlerin sıralı geçişi için */
+}
+
+/* Container, içeriklerin bulunduğu bölüm */
+.container {
+    display: flex;
+    justify-content: space-between; /* Öğeleri sol ve sağa ayır */
+    align-items: center; /* Dikeyde ortalar */
+    width: 80%; /* Container genişliğini %80 */
+}
+
+/* Yazıların bulunduğu sütun */
+.text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Yazıları sola hizala */
+    width: 60%; /* Yazı alanının genişliği %60 */
+}
+
+/* İlk yazı (Büyük yazı) */
+#typing-effect {
+    display: inline-block;
+    border-right: 3px solid #00ff00; /* Yazı bitene kadar imleç efekti */
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 2rem; /* İlk yazıyı biraz büyütüyoruz */
+}
+
+/* İkinci yazı (Daha küçük yazı) */
+#typing-effect2 {
+    font-size: 1.2rem;
+    color: #00cc00;
+}
+
+/* Yuvarlağın bulunduğu sütun */
+.circle-column {
+    display: flex;
+    justify-content: center; /* Yuvarlağı sağa hizalar */
+    align-items: center;
+    /*position: fixed;*/ /* Yuvarlağı sabitler */
+    right: 250px; /* Sağ tarafta konumlandırır */
+    top: 50%; /* Dikeyde ortalar */
+    /*transform: translateY(-50%);*/ /* Y ekseninde tam ortalamak için */
+}
+
+/* Sağ tarafa yuvarlak şekil ve fotoğraf */
+.circle-right {
+    width: 250px; /* Yuvarlak boyutu sabit */
+    height: 250px; /* Yuvarlak boyutu sabit */
+    background-color: #00cc00; /* Yeşil renk */
+    border-radius: 50%; /* Yuvarlak şekil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Fotoğrafın yuvarlak şekilde görünmesini sağlar */
+}
+
+/* Fotoğraf yuvarlak şekle uyum sağlar */
+.circle-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fotoğrafın yuvarlak şekle uyum sağlamasını sağlar */
+}
+
+/* Alt kısımdaki bölümleri farklılaştır */
+#section2, #section3, #section4 {
+    background-color: #222; /* Bölüm arka planı */
+    color: #00ff00;
+    text-align: center;
+}
+
+#section2 {
+    background-color: #333;
+}
+
+#section3 {
+    background-color: #444;
+}
+
+#section4 {
+    background-color: #555;
+}
+
+/* Yuvarlak resmi sadece ilk bölümde görünür yap */
+#circle-section {
+    display: block; /* İlk bölümde göster */
+}
+
+#section2 #circle-section, #section3 #circle-section, #section4 #circle-section {
+    display: none; /* Diğer bölümlerde gizle */
+}
+
+/* Tüm tarayıcılarda geçerli */
+body {
+    scrollbar-width: thin; /* İnce kaydırma çubuğu (Firefox) */
+    scrollbar-color: #00ff00 #111; /* Renkler (kaydırıcı, arka plan) */
+}
+
+/* WebKit tabanlı tarayıcılar (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+    width: 12px; /* Scroll bar genişliği */
+}
+
+body::-webkit-scrollbar-track {
+    background: #111; /* Scroll bar arka planı */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #00ff00; /* Scroll bar rengi */
+    border-radius: 10px; /* Yuvarlak kenarlar */
+    border: 2px solid #111; /* Arka plan ile boşluk */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #00cc00; /* Hover rengi */
+}
